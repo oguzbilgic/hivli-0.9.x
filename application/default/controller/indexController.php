@@ -1,5 +1,5 @@
 <?
-class IndexController extends Core_Controller_Base {
+class IndexController extends Hivli_Controller_Abstract {
 	
 	function indexAction(){
 		

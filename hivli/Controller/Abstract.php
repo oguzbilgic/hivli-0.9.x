@@ -18,6 +18,3 @@ class Hivli_Controller_Abstract {
 		return $this->view->get(); 
 	}
 }
-
-//old classes
-class Core_Controller_Base extends Hivli_Controller_Abstract{}
