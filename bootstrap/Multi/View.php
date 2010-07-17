@@ -2,22 +2,19 @@
 class Core_Bootstrap_Multi_View extends Core_Bootstrap_Multi_Abstract {
 	
 	function postDetectApp(){
-		$View = Hivli::get('View');
-		$Router = Hivli::get('Router');
-		$View->setSitePath('hivli/');
-		$View->setViewPath('application/' . $Router->getAppFolder() . 'view/');
-		$View->setPublicViewPath($Router->getApplicationName() . '/');
+		Hivli::get('View')->setSitePath('hivli/');
+		Hivli::get('View')->setViewPath('application/' . Hivli::get('Router')->getAppFolder() . 'view/');
+		Hivli::get('View')->setPublicViewPath(Hivli::get('Router')->getApplicationName() . '/');
 	}
 	
 	function postRoute() {
-		$View = Hivli::get('View');
-		$Router = Hivli::get('Router');
-		$View->getHelper('Layout')->activateLayout();
-		$View->getHelper('Script')->setViewFile($Router->getControllerName() . '/' . $Router->getActionName());
+		Hivli::get('View')->getHelper('Layout')->activateLayout();
+		Hivli::get('View')->getHelper('Script')->setViewFile(Hivli::get('Router')->getControllerName() . 
+														   	 '/' . 
+															 Hivli::get('Router')->getActionName());
 	}
 	
 	function render(){
-		$View = Hivli::get('View');
-		$View->render();
+		Hivli::get('View')->render();
 	}
 }

@@ -2,21 +2,17 @@
 class Core_Bootstrap_Multi_Controller extends Core_Bootstrap_Multi_Abstract {
 	
 	function preAction(){
-		$Controller = Hivli::get('Controller');
-		$Router = Hivli::get('Router');
-		$Controller->setControllerName($Router->getControllerName());
-		$Controller->setActionName($Router->getActionName());
-		$Controller->setControllerPath('application/' . $Router->getAppFolder() . 'controller/');
+		Hivli::get('Controller')->setControllerName(Hivli::get('Router')->getControllerName());
+		Hivli::get('Controller')->setActionName(Hivli::get('Router')->getActionName());
+		Hivli::get('Controller')->setControllerPath('application/' . Hivli::get('Router')->getAppFolder() . 'controller/');
 	}
 	
 	function action(){
-		$Controller = Hivli::get('Controller');
-		$Controller->action();
+		Hivli::get('Controller')->action();
 		
-		$viewParams = $Controller->getController()->getViewParams();
+		$viewParams = Hivli::get('Controller')->getController()->getViewParams();
 		if(!empty($viewParams)){
-			$view = Hivli::get('View');
-			$view->setViewParamFromArray($viewParams);	
+			Hivli::get('View')->setViewParamFromArray($viewParams);	
 		}
 	}
 }

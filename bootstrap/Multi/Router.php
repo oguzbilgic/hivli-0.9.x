@@ -2,18 +2,15 @@
 class Core_Bootstrap_Multi_Router extends Core_Bootstrap_Multi_Abstract {
 	
 	function preDetectApp(){
-		$Router = Hivli::get('Router');
-		$Router->addApplication('default', 'hivli/trunk/', 'default/');
-		$Router->setDefaultApplication('default');
+		Hivli::get('Router')->addApplication('default', 'hivli/trunk/', 'default/');
+		Hivli::get('Router')->setDefaultApplication('default');
 	}
 	
 	function detectApp(){
-		$Router = Hivli::get('Router');
-		$Router->detectApp();
+		Hivli::get('Router')->detectApp();
 	}
 	
 	function route(){
-		$Router = Hivli::get('Router');
-		$Router->route();
+		Hivli::get('Router')->route();
 	}
 }

@@ -2,10 +2,9 @@
 class Core_Bootstrap_Multi_Plugin extends Core_Bootstrap_Multi_Abstract {
 	
 	function postDetectApp(){
-		$Router = Hivli::get('Router');
 		$Plugin = Hivli::get('Plugin');
-		$Plugin->addPluginPath('application/'.$Router->getAppFolder().'plugin/');
-		$Plugin->runPluginAction('preDetectApp');	
+		Hivli::get('Plugin')->addPluginPath('application/'.Hivli::get('Router')->getAppFolder().'plugin/');
+		Hivli::get('Plugin')->runPluginAction('preDetectApp');	
 	}
 	
 	function preRoute(){
