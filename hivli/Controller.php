@@ -1,6 +1,9 @@
 <?php
 include 'Controller/Abstract.php';
 class Hivli_Controller {
+
+	const CONTROLLER_SUFFIX = 'Controller';
+	const ACTION_SUFFIX = 'Action';
 	
 	private $_controllerPath;
 	private $_controllerName;
@@ -24,12 +27,12 @@ class Hivli_Controller {
 	
 	function setControllerName($controllerName){
 		$this->_controllerName = $controllerName;
-		$this->_controllerClassName = $controllerName.'Controller';
+		$this->_controllerClassName = $controllerName . self::CONTROLLER_SUFFIX;
 	}
 	
 	function setActionName($actionName){
 		$this->_actionName = $actionName;
-		$this->_actionMethodName = $actionName.'Action';
+		$this->_actionMethodName = $actionName . self::ACTION_SUFFIX;
 	}
 
 	function setControllerPath($path){
@@ -39,27 +42,15 @@ class Hivli_Controller {
 	function getController(){
 		return $this->_controller;
 	}
+			
+	function action(){
+		include $this->_controllerPath . $this->_controllerClassName . '.php';
+		$method = $this->_actionMethodName;
 		
-	function _initStart(){
-		$this->_includeController();
 		$this->_controller = new $this->_controllerClassName;
 		$this->_controller->initBase();
 		$this->_controller->initStart();
-	}
-	
-	function action(){
-		$this->_initStart();
-		$method = $this->_actionMethodName;
 		$this->_controller->$method();
-		$this->_initStop();
-	}
-	
-	function _initStop(){
 		$this->_controller->initStop();
-	}
-
-	private function _includeController(){
-		$controllerFileName = $this->_controllerPath.$this->_controllerClassName.'.php';
-		include $controllerFileName;
 	}
 }
