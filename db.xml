@@ -2,10 +2,10 @@
 	
 	<object name="user" table_name="user">
 		<field name="id" type="id"/>
-		<field name="name" type="string"/>
-		<field name="username" type="string"/>
-		<field name="password" type="string"/>
-		<field name="email" type="string"/>
+		<field name="name" type="string" minMaxChar="3-30"/>
+		<field name="username" type="string" isUnique="true" minMaxChar="5-25"/>
+		<field name="password" type="string" minMaxChar="5-25"/>
+		<field name="email" type="email" isUnique="true"/>
 		<field name="added_time" type="timestamp"/>
 		<field name="updated_time" type="timestamp"/>
 	</object>
