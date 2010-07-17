@@ -1,6 +1,6 @@
 <?php
 include 'Database/Adapter.php';
-include 'Database/Model.php';
+include 'Database/Table/Abstract.php';
 include 'Database/Structure.php';
 include 'Database/Query.php';
 class Hivli_Database {

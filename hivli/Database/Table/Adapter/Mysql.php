@@ -1,5 +1,5 @@
 <?php
-class Hivli_Database_Model_Adapter_Mysql {
+class Hivli_Database_Table_Adapter_Mysql {
 	
 	var $_tableName;
 	var $_dabataseStructure;

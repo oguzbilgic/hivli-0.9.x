@@ -1,5 +1,5 @@
 <?php
-class Hivli_Database_Model
+class Hivli_Database_Table_Abstract
 {	
 	var $_databaseStructure;
 	var $_objectStructure;
@@ -11,8 +11,8 @@ class Hivli_Database_Model
 		
 		switch ($this->_databaseStructure->getDatabaseType()){
     		case 'mysql':
-				require_once 'Model/Adapter/Mysql.php';
-    			$this->_adapter = new Hivli_Database_Model_Adapter_Mysql($this->_objectStructure->getTableName());
+				require_once 'Adapter/Mysql.php';
+    			$this->_adapter = new Hivli_Database_Table_Adapter_Mysql($this->_objectStructure->getTableName());
     			break;
        	}
 		return $this; 
