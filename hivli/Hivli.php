@@ -23,3 +23,10 @@ class Hivli {
 		}
 	}
 }
+
+class HVL extends Hivli {
+	
+	public static function GT($classNick){
+		return parent::get($classNick);
+	}
+}
