@@ -3,7 +3,7 @@ include 'Database/Adapter.php';
 include 'Database/Model.php';
 include 'Database/Structure.php';
 include 'Database/Query.php';
-class Core_Library_Database {
+class Hivli_Database {
 	
 	private $_dbParams;
 	private $_queries;
@@ -42,7 +42,7 @@ class Core_Library_Database {
 	
 		
 	function setXmlFilePath($xmlFilePath){
-		$this->setStructure(Core_library_Database_Structure::createStructure($xmlFilePath));
+		$this->setStructure(Hivli_Database_Structure::createStructure($xmlFilePath));
 		$this->setDatabaseParams($this->getStructure()->getDatabaseParams());		
 	}
 
@@ -52,7 +52,7 @@ class Core_Library_Database {
 	}
 
 	private function _setAdapter(){
-		$this->setAdapter(Core_Library_Database_Adapter::createAdapter($this->_dbParams['type']));
+		$this->setAdapter(Hivli_Database_Adapter::createAdapter($this->_dbParams['type']));
 		$this->getAdapter()->setDatabaseParams($this->_dbParams);
 	}
 

@@ -1,5 +1,5 @@
 <?php
-class Core_Library_Database_Adapter_Mysql extends Core_Library_Database_Adapter_Abstract {
+class Hivli_Database_Adapter_Mysql extends Hivli_Database_Adapter_Abstract {
 	
 	var $_dbParams;
 	var $_baseConnection;

@@ -1,5 +1,5 @@
 <?
-class Core_Library_View_Helper_Modul extends Core_Library_View_Helper_Abstract {
+class Hivli_View_Helper_Modul extends Hivli_View_Helper_Abstract {
 	
 	function render($modulName, $modulParams = NULL){
 		foreach ($this->View->getParams() as $key => $value){

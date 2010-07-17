@@ -1,5 +1,5 @@
 <?
-class Core_Library_View_Helper_Fill extends Core_Library_View_Helper_Abstract {
+class Hivli_View_Helper_Fill extends Hivli_View_Helper_Abstract {
 
 	function fill($params, $string){
 		foreach ($params as $key => $value){

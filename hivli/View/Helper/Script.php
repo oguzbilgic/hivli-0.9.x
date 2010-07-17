@@ -1,5 +1,5 @@
 <?
-class Core_Library_View_Helper_Script extends Core_Library_View_Helper_Abstract {
+class Hivli_View_Helper_Script extends Hivli_View_Helper_Abstract {
 	
 	var $_viewFile;
 

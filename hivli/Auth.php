@@ -1,6 +1,6 @@
 <?php
 session_start();
-class Core_Library_Auth {
+class Hivli_Auth {
 	
 	private $_authStatus = false;
 	private $_permissions;

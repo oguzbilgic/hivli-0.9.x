@@ -1,6 +1,6 @@
 <?php
 include 'View/Helper.php';
-class Core_Library_View {
+class Hivli_View {
 	
 	private  $_viewPath;
 	private  $_sitePath;
@@ -75,7 +75,7 @@ class Core_Library_View {
 		if (!empty($this->_helper)){
 			return $this->_helper->getHelper($helperName);
 		} else {
-			$this->_helper = new Core_Library_View_Helper($this);
+			$this->_helper = new Hivli_View_Helper($this);
 			return $this->_helper->getHelper($helperName);
 		}
 	}

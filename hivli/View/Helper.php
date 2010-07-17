@@ -1,11 +1,11 @@
 <?php
 include 'Helper/Abstract.php';
-class Core_Library_View_Helper {
+class Hivli_View_Helper {
 	
 	var $View;
 	var $_helper;
 	
-	function __construct(Core_Library_View $view){
+	function __construct(Hivli_View $view){
 		$this->View = $view;
 	}
 	
@@ -22,7 +22,7 @@ class Core_Library_View_Helper {
 			} else {
 				$helperFilePath = 'Helper/' . $helperName . '.php';
 				require_once $helperFilePath;
-				$helperClassName = 'Core_Library_View_Helper_' . $helperName;
+				$helperClassName = 'Hivli_View_Helper_' . $helperName;
 				$this->_helper[$helperName] = new $helperClassName($this->View);
 				return $this->_helper[$helperName];					
 			}

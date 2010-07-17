@@ -10,7 +10,7 @@ include 'Multi/Router.php';
 include 'Multi/View.php';
 include 'Multi/Error.php';
 include 'Multi/Auth.php';
-class Core_Bootstrap_Multi extends Core_Library_Bootstrap {
+class Core_Bootstrap_Multi extends Hivli_Bootstrap {
 
 	function __construct(){
 		$this->addAbstract(new Core_Bootstrap_Multi_Abstract);

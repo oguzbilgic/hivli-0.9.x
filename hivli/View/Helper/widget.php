@@ -1,6 +1,6 @@
 <?
 include 'Widget/Abstract.php';
-class Core_Library_View_Helper_Widget extends Core_Library_View_Helper_Abstract {
+class Hivli_View_Helper_Widget extends Hivli_View_Helper_Abstract {
 	
 	function render($widgetName, $widgetParams = NULL){
 		include $this->View->getViewPath() . 'widget/' . $widgetName . 'Widget.php';

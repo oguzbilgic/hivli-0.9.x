@@ -1,5 +1,5 @@
 <?
-class Core_Library_View_Helper_Widget_Abstract {
+class Hivli_View_Helper_Widget_Abstract {
 	
 	function prepare(){
 		$this->view = new object;

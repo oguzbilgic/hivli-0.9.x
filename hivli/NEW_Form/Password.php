@@ -1,5 +1,5 @@
 <?
-class Core_Library_Form_Password extends Core_Library_Form_Abstract{
+class Hivli_Form_Password extends Hivli_Form_Abstract{
 	
 	function getForm(){
 		$form = '<label>' . $this->getLabel() . '</label> ';

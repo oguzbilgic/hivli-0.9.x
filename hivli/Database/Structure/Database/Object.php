@@ -1,6 +1,6 @@
 <?php
-class Core_library_Database_Structure_Database_Object 
-	extends Core_Library_Database_Structure_Database {
+class Hivli_Database_Structure_Database_Object 
+	extends Hivli_Database_Structure_Database {
 	
 	function __construct($object, $xml){
 		$this->object = $object;

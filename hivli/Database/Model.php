@@ -1,19 +1,19 @@
 <?php
-class Core_library_Database_Model
+class Hivli_Database_Model
 {
 	static $_adapter;
 	static $Database;
 	static $Structure;
 	
 	function __construct($objectName){
-		$this->Database = Core_library_Loader::get('Database');
+		$this->Database = Hivli::get('Database');
 		$this->Db = $this->Database->getStructure();
 		$this->Object = $this->Database->getStructure()->getObject($objectName);
 		
 		switch ($this->Db->getDatabaseType()){
     		case 'mysql':
 				require_once 'Model/Adapter/Mysql.php';
-    			$this->_adapter = new Core_library_Database_Model_Adapter_Mysql($this->Object->getTableName());
+    			$this->_adapter = new Hivli_Database_Model_Adapter_Mysql($this->Object->getTableName());
     			break;
        	}
 		return $this; 

@@ -5,7 +5,7 @@ class Core_Bootstrap_Multi_Auth extends Core_Bootstrap_Multi_Abstract {
 		
 		ini_set('session.cookie_domain', 'oguzbilgic.com');
 	
-		$Auth = Core_Library_Loader::get('Auth');
+		$Auth = Hivli::get('Auth');
 		$Auth->setAuthStatus(true);
 		$Auth->setDefaultRole('guest');
 
@@ -19,9 +19,9 @@ class Core_Bootstrap_Multi_Auth extends Core_Bootstrap_Multi_Abstract {
 	}
 
 	function postRoute(){
-		$Auth = Core_Library_Loader::get('Auth');
-		$Router = Core_Library_Loader::get('Router');
-		$View = Core_Library_Loader::get("View");
+		$Auth = Hivli::get('Auth');
+		$Router = Hivli::get('Router');
+		$View = Hivli::get("View");
 
 		if ($Auth->hasIdentity()){
 			$user = Data_User::getUserById($Auth->getIdentity());

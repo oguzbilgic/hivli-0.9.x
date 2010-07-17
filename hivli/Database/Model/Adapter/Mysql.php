@@ -1,10 +1,10 @@
 <?php
-class Core_library_Database_Model_Adapter_Mysql {
+class Hivli_Database_Model_Adapter_Mysql {
 	
 	var $_tableName;
 	
 	function __construct($tableName){	
-		$this->Database = Core_Library_Database::getInstance();
+		$this->Database = Hivli_Database::getInstance();
 		$this->_tableName = $tableName;
 		$this->Db = $this->Database->getStructure();
 	}

@@ -1,11 +1,11 @@
 <?php
-class metaWidget extends Core_Library_View_Helper_Widget_Abstract {
+class metaWidget extends Hivli_View_Helper_Widget_Abstract {
 	
 	function action(){
-		$Router = Core_Library_Loader::get('Router');
-		$View = Core_Library_Loader::get("View");
+		$Router = Hivli::get('Router');
+		$View = Hivli::get("View");
 		$I18nHelper = $View->getHelper('I18n');
-		$I18n = Core_Library_Loader::get("I18n");
+		$I18n = Hivli::get("I18n");
 		
 		$dictionary = $I18n->getDictionary();
 		

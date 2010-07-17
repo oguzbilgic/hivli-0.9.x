@@ -1,6 +1,6 @@
 <?php
 include 'Model/Abstract.php';
-class Core_Library_Model {
+class Hivli_Model {
 	
 	private $_models;
 	
@@ -33,6 +33,6 @@ class Core_Library_Model {
 
 function __autoload($class_name)
 {
-    $Model = Core_Library_Loader::get('Model');
+    $Model = Hivli::get('Model');
 	$Model->getClass($class_name);
 }

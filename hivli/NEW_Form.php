@@ -1,5 +1,5 @@
 <?
-class Core_Library_Form {
+class Hivli_Form {
 	
 	private $_name;
 	private $_method = 'post';
@@ -22,7 +22,7 @@ class Core_Library_Form {
 		$this->_action = $action;
 	}
 	
-	function addField(Core_Library_Form_Abstract $field){
+	function addField(Hivli_Form_Abstract $field){
 		$this->_fields[$field->getName()] = $field;
 	}
 	
@@ -81,22 +81,22 @@ class Core_Library_Form {
 /**
  * form
  */
-class registerForm extends Core_Library_Form {
+class registerForm extends Hivli_Form {
 	
 	function __construct(){
 		parent::__construct();
 		
-		$name = new Core_Library_Form_Text('name');
+		$name = new Hivli_Form_Text('name');
 		$name->setAsRequired();
 
-		$username = new Core_Library_Form_Text('username');
+		$username = new Hivli_Form_Text('username');
 		$username->setAsRequired();
 
-		$email = new Core_Library_Form_Text('email');
+		$email = new Hivli_Form_Text('email');
 		$email->setAsRequired();
 		$email->setAsEmail();
 
-		$password = new Core_Library_Form_Password('password');
+		$password = new Hivli_Form_Password('password');
 		$password->setAsRequired();
 		
 		$this->addField($name);
@@ -110,7 +110,7 @@ class registerForm extends Core_Library_Form {
  * controller
  */
 $form = new registerForm;
-$posts = Core_Library_Loader::get('Router')->getPosts();
+$posts = Hivli::get('Router')->getPosts();
 
 if ($form->isValid($posts)){
 	echo ' onayy<br/>';

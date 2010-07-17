@@ -1,5 +1,5 @@
 <?php
-class Core_Library_Database_Adapter_Abstract {
+class Hivli_Database_Adapter_Abstract {
 	
 	function setDatabaseParams($params){}
 	

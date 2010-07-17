@@ -1,6 +1,6 @@
 <?php
 include 'Database/Object.php';
-class Core_library_Database_Structure_Database {
+class Hivli_Database_Structure_Database {
 	
 	function __construct($xml){
 		$this->db = $xml;
@@ -29,7 +29,7 @@ class Core_library_Database_Structure_Database {
 	function getObject($objectName){
 		foreach($this->db->object as $object){		
 			if ($object['name'] == $objectName){
-				return new Core_library_Database_Structure_Database_Object($object, $this->db);
+				return new Hivli_Database_Structure_Database_Object($object, $this->db);
 			}
 		}
 	}

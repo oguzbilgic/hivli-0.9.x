@@ -1,5 +1,5 @@
 <?
-class Core_Library_Database_Query_Mysql extends Core_Database_Query_Abstract {
+class Hivli_Database_Query_Mysql extends Core_Database_Query_Abstract {
 	
 	private $_select;
 	private $_from;
@@ -65,28 +65,28 @@ class Core_Library_Database_Query_Mysql extends Core_Database_Query_Abstract {
 			}
 			
 			switch ($criteria['criteria_operator']){
-				case Core_Library_Database_Query::CRITERIA_EQUAL :
+				case Hivli_Database_Query::CRITERIA_EQUAL :
 					$query .= ' ( ' . $criteria['table_name'] . '.' . $criteria['column'] . ' = ' . $criteria['value'] . ' ) ';
 					break;
-				case Core_Library_Database_Query::CRITERIA_NOT_EQUAL :
+				case Hivli_Database_Query::CRITERIA_NOT_EQUAL :
 					$query .= ' ( ' . $criteria['table_name'] . '.' . $criteria['column'] . ' != ' . $criteria['value'] . ' ) ';
 					break;
-				case Core_Library_Database_Query::CRITERIA_GREATER_THAN :
+				case Hivli_Database_Query::CRITERIA_GREATER_THAN :
 					$query .= ' ( ' . $criteria['table_name'] . '.' . $criteria['column'] . ' > ' . $criteria['value'] . ' ) ';
 					break;
-				case Core_Library_Database_Query::CRITERIA_LESS_THAN :
+				case Hivli_Database_Query::CRITERIA_LESS_THAN :
 					$query .= ' ( ' . $criteria['table_name'] . '.' . $criteria['column'] . ' < ' . $criteria['value'] . ' ) ';
 					break;
-				case Core_Library_Database_Query::CRITERIA_GREATER_EQUAL :
+				case Hivli_Database_Query::CRITERIA_GREATER_EQUAL :
 					$query .= ' ( ' . $criteria['table_name'] . '.' . $criteria['column'] . ' >= ' . $criteria['value'] . ' ) ';
 					break;
-				case Core_Library_Database_Query::CRITERIA_LESS_EQUAL :
+				case Hivli_Database_Query::CRITERIA_LESS_EQUAL :
 					$query .= ' ( ' . $criteria['table_name'] . '.' . $criteria['column'] . ' <= ' . $criteria['value'] . ' ) ';
 					break;					
-				case Core_Library_Database_Query::CRITERIA_LIKE :
+				case Hivli_Database_Query::CRITERIA_LIKE :
 					$query .= " ( " . $criteria['table_name'] . "." . $criteria['column'] . " LIKE '" . $criteria['value'] . "'  ) ";
 					break;
-				case Core_Library_Database_Query::CRITERIA_MOT_LIKE :
+				case Hivli_Database_Query::CRITERIA_MOT_LIKE :
 					$query .= ' ( ' . $criteria['table_name'] . '.' . $criteria['column'] . ' NOT LIKE ' . $criteria['value'] . ' ) ';
 					break;					
 					

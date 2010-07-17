@@ -1,5 +1,5 @@
 <?php
-class Core_Library_I18n {
+class Hivli_I18n {
 	
  	private $_languages;
  	private $_languagePath;

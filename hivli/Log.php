@@ -1,5 +1,5 @@
 <?php
-class Core_Library_Log {
+class Hivli_Log {
 	var $_logs;
 	var $_functions;
 	

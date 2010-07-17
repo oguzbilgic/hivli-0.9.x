@@ -1,5 +1,5 @@
 <?php
-class Core_Library_Router {					
+class Hivli_Router {					
 	
 	private $_sitePath;
 	private $_applications;

@@ -1,5 +1,5 @@
 <?
-class Core_Library_Form_Abstract {
+class Hivli_Form_Abstract {
 	
 	private $_name;
 	private $_label;

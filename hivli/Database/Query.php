@@ -1,6 +1,6 @@
 <?
 include 'Query/Abstract.php';
-class Core_Library_Database_Query {
+class Hivli_Database_Query {
 	
 	private $_criterias = array();
 	private $_orderBy;
@@ -23,7 +23,7 @@ class Core_Library_Database_Query {
 	const ORDER_BY_DESC = 'DESC';
 	
 	function _getObjectStructure($objectName){
-		return Core_Library_Loader::get('Database')->getStructure()->getObject($objectName);
+		return Hivli::get('Database')->getStructure()->getObject($objectName);
 	}
 	
 	function addCriteria($object, $column, $value, $criteriaOperator = self::CRITERIA_EQUAL){
@@ -61,12 +61,12 @@ class Core_Library_Database_Query {
 	}
 	
 	function getQuery(){
-		$type = Core_Library_Loader::get('Database')->getStructure()->getDatabaseType();
+		$type = Hivli::get('Database')->getStructure()->getDatabaseType();
 		
 		switch ($type) {
 			case 'mysql':
 				require_once 'Query/Mysql.php';
-				$query = new Core_Library_Database_Query_Mysql($this->_criterias, $this->_limit, $this->_orderBy, $this->_join, $this->_from);
+				$query = new Hivli_Database_Query_Mysql($this->_criterias, $this->_limit, $this->_orderBy, $this->_join, $this->_from);
 				return $query->getQuery();
 				break;
 		}

@@ -1,5 +1,5 @@
 <?php
-class Core_Library_Bootstrap {
+class Hivli_Bootstrap {
 	
 	private $_plugins;
 	private $_abstract;

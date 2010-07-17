@@ -2,7 +2,7 @@
 class Data_User {
 
 	public static function db() {
-		return new Core_library_Database_Model('user');
+		return new Hivli_Database_Model('user');
 	}
 
 	public static function getUserById($id){

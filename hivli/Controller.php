@@ -1,6 +1,6 @@
 <?php
 include 'Controller/Abstract.php';
-class Core_Library_Controller {
+class Hivli_Controller {
 	
 	private $_controllerPath;
 	private $_controllerName;

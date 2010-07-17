@@ -1,5 +1,5 @@
 <?php
-class Core_Library_Plugin {
+class Hivli_Plugin {
 	
 	private $_pluginPaths;
 	private $_plugins;

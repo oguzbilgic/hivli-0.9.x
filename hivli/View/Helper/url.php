@@ -1,5 +1,5 @@
 <?
-class Core_Library_View_Helper_Url extends Core_Library_View_Helper_Abstract {
+class Hivli_View_Helper_Url extends Hivli_View_Helper_Abstract {
 	
 	function url($url, $isFilter = FALSE){
 		if($isFilter){

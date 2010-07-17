@@ -1,7 +1,7 @@
 <?
-class Core_Library_View_Helper_Abstract {
+class Hivli_View_Helper_Abstract {
 	
-	function __construct(Core_Library_View $view){
+	function __construct(Hivli_View $view){
 		$this->View = $view;
 	}
 	

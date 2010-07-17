@@ -1,5 +1,5 @@
 <?php
-class Core_Library_Test {
+class Hivli_Test {
 	
 	private static $_instance;
 	private function __construcut(){

@@ -18,7 +18,7 @@ class Service_User {
 		
 		$user = Data_User::db()->selectOne(array('username' => $username, 'password' => $password));
 		if ($user){
-			Core_Library_Loader::get('Auth')->createIdentity($user['id']);
+			Hivli::get('Auth')->createIdentity($user['id']);
 			Data_User::db()->update(array('last_action_date' => time()), array('id' => $user['id']));
 			return true;
 		}
