@@ -14,6 +14,7 @@ class Core_Bootstrap_Multi extends Hivli_Bootstrap {
 
 	function __construct(){
 		$this->addAbstract(new Core_Bootstrap_Multi_Abstract);
+		
 		$this->addPlugin(new Core_Bootstrap_Multi_Router);
 		$this->addPlugin(new Core_Bootstrap_Multi_Controller);
 		$this->addPlugin(new Core_Bootstrap_Multi_Plugin);
@@ -22,7 +23,7 @@ class Core_Bootstrap_Multi extends Hivli_Bootstrap {
 		$this->addPlugin(new Core_Bootstrap_Multi_I18n);
 		$this->addPlugin(new Core_Bootstrap_Multi_Database);
 		$this->addPlugin(new Core_Bootstrap_Multi_Php);
-		//$this->addPlugin(new Core_Bootstrap_Multi_Error);
+		$this->addPlugin(new Core_Bootstrap_Multi_Error);
 		$this->addPlugin(new Core_Bootstrap_Multi_Auth);
 	}
  }

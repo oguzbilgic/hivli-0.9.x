@@ -7,7 +7,7 @@ class Core_Bootstrap_Multi_Php extends Core_Bootstrap_Multi_Abstract {
 	}
 	
 	function postRender(){
-		//echo 'Peak: ' . number_format(memory_get_peak_usage(), 0, '.', ',') . " bytes <br />";
-		//echo 'End: ' . number_format(memory_get_usage(), 0, '.', ',') . " bytes";
+		echo 'Peak: ' . number_format(memory_get_peak_usage(), 0, '.', ',') . " bytes <br />";
+		echo 'End: ' . number_format(memory_get_usage(), 0, '.', ',') . " bytes";
 	}
 }
