@@ -1,5 +1,5 @@
 <?
-class DataApi_Youtube {
+class Api_Youtube {
 
 	const API_URL = "http://gdata.youtube.com/feeds/api/videos?v=2&alt=jsonc";
 	

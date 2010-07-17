@@ -1,4 +1,4 @@
 <?php
-class Model_User extends Core_Libarary_Model_Abstract {
+class Row_User extends Hivli_Database_Row_Abstract {
 	
 }
