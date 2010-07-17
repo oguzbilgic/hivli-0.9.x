@@ -26,6 +26,14 @@ class Hivli_Database_Structure_Database {
 		return (string) $this->db['password'];
 	}
 	
+	function getDatabaseParams(){
+		return    array('name' => $this->getDatabaseName(),
+						'type' => $this->getDatabaseType(),
+				  		'host' => $this->getDatabaseHost(),
+						'username' => $this->getDatabaseUsername(),
+						'password' => $this->getDatabasePassword());
+	}
+	
 	function getObject($objectName){
 		foreach($this->db->object as $object){		
 			if ($object['name'] == $objectName){
@@ -41,11 +49,4 @@ class Hivli_Database_Structure_Database {
 		return $list;
 	}
 	
-	function getDatabaseParams(){
-		return    array('name' => $this->getDatabaseName(),
-						'type' => $this->getDatabaseType(),
-				  		'host' => $this->getDatabaseHost(),
-						'username' => $this->getDatabaseUsername(),
-						'password' => $this->getDatabasePassword());
-	}
 }

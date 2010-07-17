@@ -1,19 +1,18 @@
 <?php
 class Hivli_Database_Model
-{
-	static $_adapter;
-	static $Database;
-	static $Structure;
+{	
+	var $_databaseStructure;
+	var $_objectStructure;
+	var $_adapter;
 	
 	function __construct($objectName){
-		$this->Database = Hivli::get('Database');
-		$this->Db = $this->Database->getStructure();
-		$this->Object = $this->Database->getStructure()->getObject($objectName);
+		$this->_databaseStructure = Hivli::get('Database')->getStructure();
+		$this->_objectStructure = Hivli::get('Database')->getStructure()->getObject($objectName);
 		
-		switch ($this->Db->getDatabaseType()){
+		switch ($this->_databaseStructure->getDatabaseType()){
     		case 'mysql':
 				require_once 'Model/Adapter/Mysql.php';
-    			$this->_adapter = new Hivli_Database_Model_Adapter_Mysql($this->Object->getTableName());
+    			$this->_adapter = new Hivli_Database_Model_Adapter_Mysql($this->_objectStructure->getTableName());
     			break;
        	}
 		return $this; 
@@ -23,14 +22,27 @@ class Hivli_Database_Model
 		return $this->_adapter->fetchAll();
 	}
 	
-	function select($attributes = NULL, $limit = NULL, $childObjects =NULL, $orderBy = NULL){
+	function select($attributes = NULL, $limit = NULL, $childObjects = NULL, $orderBy = NULL){
 		$parentObjects = $this->_adapter->select($attributes, $limit, $orderBy);
+		
 		if (isset($childObjects)){
-			return $this->_matchObjects($attributes, $parentObjects, $childObjects);
+			foreach ($childObjects as $childObject){
+				$childObjectStructure = $this->_databaseStructure->getObject($this->_objectStructure->getChildObjectName($childObject));
+			
+				$childObjectResult = $this->_adapter->getChildObjects($attributes, $childObject, $childObjectStructure->getTableName(), $childObjectStructure->getPrimaryKey());
+			
+				$result = null;
+				foreach ($parentObjects as $parentObject){
+					array_search_in_level($parentObject[$childObject], $childObjectResult, $childObjectStructure->getPrimaryKey(), $parentObject[$childObject], 1);
+					$newObjects[] =  $parentObject;
+				}
+				$parentObjects =  $newObjects;
+			}
 		}
+		
 		return $parentObjects;
 	}
-	
+		
 	function selectOne($attributes, $childObjects =NULL){
 		$result = $this->select($attributes, '1', $childObjects);
 		if (isset ($result[0])){
@@ -55,30 +67,4 @@ class Hivli_Database_Model
 		$this->_adapter->delete($itemAttributes);
 	}
 	
-	
-	
-	
-	function getChildObjects($attributes = NULL, $childObjectFieldName){
-		$childObjectName = $this->Object->getChildObjectName($childObjectFieldName);
-		$childObjectStructure = $this->Db->getObject($childObjectName);
-		
-		return $this->_adapter->getChildObjects($attributes, $childObjectFieldName, $childObjectStructure->getTableName(), $childObjectStructure->getPrimaryKey());
-	}
-	
-	
-	
-	function _matchObjects($attributes = NULL, $parentObjects, $childObjects){
-		foreach ($childObjects as $childObject){
-				$childObjectName = $this->Object->getChildObjectName($childObject);
-				$childObjectStructure = $this->Db->getObject($childObjectName);
-			
-				$childObjectResult = $this->getChildObjects($attributes, $childObject);
-				$parentObjects = matchObjects($parentObjects, $childObjectResult, $childObject, $childObject, $childObjectStructure->getPrimaryKey());
-		}
-		return $parentObjects;
-	}
-	
-	
 }
-
-class Core_Model_Database {}

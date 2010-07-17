@@ -2,16 +2,15 @@
 class Hivli_Database_Model_Adapter_Mysql {
 	
 	var $_tableName;
+	var $_dabataseStructure;
 	
 	function __construct($tableName){	
-		$this->Database = Hivli_Database::getInstance();
 		$this->_tableName = $tableName;
-		$this->Db = $this->Database->getStructure();
+		$this->_databaseStructure = Hivli::get('database')->getStructure();
 	}
 	
 	function fetchAll(){
-		$queryId = $this->Database->newQuery('SELECT * FROM  '.$this->_tableName);
-		return $this->Database->getResultAsArray($queryId);
+		return Hivli::get('database')->newQuery('SELECT * FROM  '.$this->_tableName);
 	}
 	
 	function select($attributes = NULL, $limit = NULL, $orderBy = NULL){
@@ -39,8 +38,7 @@ class Hivli_Database_Model_Adapter_Mysql {
 			$query = $query.' LIMIT 0,'.$limit;
 		}
 		
-		$queryId = $this->Database->newQuery($query);
-		return $this->Database->getResultAsArray($queryId);
+		return Hivli::get('database')->newQuery($query);
 	}	
 	
 	function selectLike($attributes = NULL, $limit = NULL, $orderBy = NULL){
@@ -80,8 +78,7 @@ class Hivli_Database_Model_Adapter_Mysql {
 			$query .= 'AND ('.$childObjectTabeleName.'.'.$childObjectIdFieldName.' = '.$this->_tableName.'.'.$childObjectFieldName.')';
 		}
 
-		$queryId = $this->Database->newQuery($query);
-		return $this->Database->getResultAsArray($queryId);
+		return Hivli::get('database')->newQuery($query);
 	}	
 	
 	
@@ -100,14 +97,14 @@ class Hivli_Database_Model_Adapter_Mysql {
 			$attributeNumber++;
 		}
 		
-		$query = 'INSERT INTO `'.$this->Db->getDatabaseName().'`.`'.$this->_tableName.'` ';
+		$query = 'INSERT INTO `'.$this->_databaseStructure->getDatabaseName().'`.`'.$this->_tableName.'` ';
 		$query = $query.' ( '.$fields.' ) VALUES ( '.$values.' ) ';
 		
-		$this->Database->newQuery($query);
+		Hivli::get('database')->newQuery($query);
 	}
 	
 	function update($newAttributes, $oldAttributes){
-		$query = 'UPDATE `'.$this->Db->getDatabaseName().'`.`'.$this->_tableName.'` SET ';
+		$query = 'UPDATE `'.$this->_databaseStructure->getDatabaseName().'`.`'.$this->_tableName.'` SET ';
 		
 		$newAttributeNum = '0';
 		$oldAttributeNum = '0';
@@ -128,11 +125,12 @@ class Hivli_Database_Model_Adapter_Mysql {
 			}
 			$oldAttributeNum++;
 		}
-		$this->Database->newQuery($query);
+		
+		Hivli::get('database')->newQuery($query);
 	}
 	
 	function delete($itemAttributes){
-		$query = "DELETE FROM `".$this->Db->getDatabaseName()."` . `".$this->_tableName."` WHERE ";
+		$query = "DELETE FROM `".$this->_databaseStructure->getDatabaseName()."` . `".$this->_tableName."` WHERE ";
 		
 		$attributeNum = 0;
 		foreach ($itemAttributes as $field => $value){
@@ -144,6 +142,6 @@ class Hivli_Database_Model_Adapter_Mysql {
 			$attributeNum++;
 		}
 		
-		$this->Database->newQuery($query);
+		Hivli::get('database')->newQuery($query);
 	}
 }

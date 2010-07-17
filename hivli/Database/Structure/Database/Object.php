@@ -1,6 +1,5 @@
 <?php
-class Hivli_Database_Structure_Database_Object 
-	extends Hivli_Database_Structure_Database {
+class Hivli_Database_Structure_Database_Object extends Hivli_Database_Structure_Database {
 	
 	function __construct($object, $xml){
 		$this->object = $object;
@@ -41,6 +40,7 @@ class Hivli_Database_Structure_Database_Object
 				return true;
 			}
 		}
+		return false;
 	}
 	
 	function getChildObjectFields(){
@@ -58,6 +58,7 @@ class Hivli_Database_Structure_Database_Object
 				return (string) $field['object_name'];
 			}
 		}
+		return false;
 	}
 	
 	function getChildObjectStringField($fieldName){

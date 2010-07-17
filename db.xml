@@ -1,19 +1,20 @@
-<database name="database_name" type="mysql" host="localhost" username="root" password="password">
+<database name="hivli" type="mysql" host="localhost" username="hivli" password="">
 	
 	<object name="user" table_name="user">
 		<field name="id" type="id"/>
-		<field name="fb_ui" type="string"/>
-		<field name="date_added" type="timestamp"/>
-		<field name="last_action_date" type="timestamp"/>
+		<field name="name" type="string"/>
 		<field name="username" type="string"/>
 		<field name="password" type="string"/>
-		<field name="name" type="string"/>
 		<field name="email" type="string"/>
-		<field name="ip" type="string"/>
-		<field name="role" type="option">
-			<option name="Administrator" value="admin"/>
-			<option name="User" value="user"/>
-		</field>
+		<field name="added_time" type="timestamp"/>
+		<field name="updated_time" type="timestamp"/>
+	</object>
+	
+	<object name="post" table_name="post">
+		<field name="id" type="id"/>
+		<field name="title" type="string"/>
+		<field name="body" type="text"/>
+		<field name="user_id" type="object" object_name="user"/>
 	</object>
 
 </database>
