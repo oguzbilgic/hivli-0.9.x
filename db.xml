@@ -1,0 +1,19 @@
+<database name="database_name" type="mysql" host="localhost" username="root" password="password">
+	
+	<object name="user" table_name="user">
+		<field name="id" type="id"/>
+		<field name="fb_ui" type="string"/>
+		<field name="date_added" type="timestamp"/>
+		<field name="last_action_date" type="timestamp"/>
+		<field name="username" type="string"/>
+		<field name="password" type="string"/>
+		<field name="name" type="string"/>
+		<field name="email" type="string"/>
+		<field name="ip" type="string"/>
+		<field name="role" type="option">
+			<option name="Administrator" value="admin"/>
+			<option name="User" value="user"/>
+		</field>
+	</object>
+
+</database>
