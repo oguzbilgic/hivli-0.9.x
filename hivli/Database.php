@@ -1,11 +1,11 @@
 <?php
 include 'Database/Adapter.php';
 include 'Database/Table/Abstract.php';
+include 'Database/Row/Abstract.php';
 include 'Database/Structure.php';
 include 'Database/Query.php';
 class Hivli_Database {
 	
-	private $_queries;
 	private $_structure;
 	private $_adapter;
 	
@@ -36,15 +36,8 @@ class Hivli_Database {
 		
 		$this->getAdapter()->setDatabaseParams($this->getStructure()->getDatabaseParams());
 	}
-
-
 	
 	function newQuery($query){
-		$queryId = rand();
-		$this->_queries[$queryId]['query'] = $query;
-		$result = $this->getAdapter()->runQuery($query);
-		$this->_queries[$queryId]['result'] = $result;
-		
-		return $this->getAdapter()->getResultAsArray($result);
+		return $this->getAdapter()->getResultAsArray($this->getAdapter()->runQuery($query));
 	}
 }

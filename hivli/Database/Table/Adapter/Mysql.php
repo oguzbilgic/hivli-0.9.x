@@ -48,13 +48,6 @@ class Hivli_Database_Table_Adapter_Mysql {
 		return $this->select($newAttributes, $limit, $orderBy);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
 	function getChildObjects($attributes = NULL, $childObjectFieldName, $childObjectTabeleName, $childObjectIdFieldName){
 		$query = 'SELECT '.$childObjectTabeleName.'.*'; 
 		$query .= ' FROM  '.$this->_tableName.', '.$childObjectTabeleName.' ';

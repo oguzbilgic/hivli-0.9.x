@@ -6,8 +6,8 @@
 		<field name="username" type="string" isUnique="true" minMaxChar="5-25"/>
 		<field name="password" type="string" minMaxChar="5-25"/>
 		<field name="email" type="email" isUnique="true"/>
-		<field name="added_time" type="timestamp"/>
-		<field name="updated_time" type="timestamp"/>
+		<field name="added_time" type="added_time"/>
+		<field name="updated_time" type="updated_time"/>
 	</object>
 	
 	<object name="post" table_name="post">

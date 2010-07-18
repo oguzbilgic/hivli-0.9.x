@@ -24,6 +24,6 @@ class Core_Bootstrap_Multi extends Hivli_Bootstrap {
 		$this->addPlugin(new Core_Bootstrap_Multi_Database);
 		$this->addPlugin(new Core_Bootstrap_Multi_Php);
 		$this->addPlugin(new Core_Bootstrap_Multi_Error);
-		$this->addPlugin(new Core_Bootstrap_Multi_Auth);
+		//$this->addPlugin(new Core_Bootstrap_Multi_Auth);
 	}
  }

@@ -19,7 +19,11 @@ class Hivli_Database_Structure_Database_Object extends Hivli_Database_Structure_
 	}
 	
 	function getFields(){
-		return $this->object->field;
+		$fields = array();
+		foreach ($this->object->field as $field){
+			$fields[] = $field;
+		}
+		return $fields;
 	}
 	
 	function getFieldNumber(){
