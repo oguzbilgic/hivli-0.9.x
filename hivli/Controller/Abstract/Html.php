@@ -1,5 +1,5 @@
 <?
-class Hivli_Controller_Abstract_Html extends Hivli_Contoller_Abstract {
+class Hivli_Controller_Abstract_Html extends Hivli_Controller_Abstract {
 	
 	function initBase() {			
 		$this->view = new Object();
