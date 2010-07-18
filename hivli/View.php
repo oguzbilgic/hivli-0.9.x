@@ -53,7 +53,7 @@ class Hivli_View {
 		$this->getHelper('Layout')->deactivateLayout();
 	}
 	
-	function setViewParamFromArray($viewParamFromArray){
+	function setViewParamFromArray($viewParamFromArray = array()){
 		foreach ($viewParamFromArray as $key => $value){
 			$this->_viewParam[$key] = $value;
 		}

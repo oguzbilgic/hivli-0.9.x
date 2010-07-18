@@ -1,7 +1,7 @@
 <?php
 class Object {
 	
-	private $_vars;
+	private $_vars = array();
 	
 	function __get($key){
 		return $this->_vars[$key];
