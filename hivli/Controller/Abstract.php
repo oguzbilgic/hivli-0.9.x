@@ -8,5 +8,7 @@ class Hivli_Controller_Abstract {
 	function initBase() {}
 	function initStart(){}
 	function initStop(){}
+	
 	function getParams(){}
+	function getType(){}
 }
