@@ -8,7 +8,6 @@ include 'Multi/Php.php';
 include 'Multi/Plugin.php';
 include 'Multi/Router.php';
 include 'Multi/View.php';
-include 'Multi/Error.php';
 include 'Multi/Auth.php';
 class Core_Bootstrap_Multi extends Hivli_Bootstrap {
 
@@ -23,7 +22,6 @@ class Core_Bootstrap_Multi extends Hivli_Bootstrap {
 		$this->addPlugin(new Core_Bootstrap_Multi_I18n);
 		$this->addPlugin(new Core_Bootstrap_Multi_Database);
 		$this->addPlugin(new Core_Bootstrap_Multi_Php);
-		$this->addPlugin(new Core_Bootstrap_Multi_Error);
-		//$this->addPlugin(new Core_Bootstrap_Multi_Auth);
+		$this->addPlugin(new Core_Bootstrap_Multi_Auth);
 	}
  }
