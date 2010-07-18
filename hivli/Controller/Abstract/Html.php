@@ -5,7 +5,7 @@ class Hivli_Controller_Abstract_Html extends Hivli_Contoller_Abstract {
 		$this->view = new Object();
 	}
 		
-	function getViewParams(){
+	function getParams(){
 		return $this->view->get(); 
 	}
 }

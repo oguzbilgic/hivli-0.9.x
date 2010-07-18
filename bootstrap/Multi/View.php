@@ -15,7 +15,7 @@ class Core_Bootstrap_Multi_View extends Core_Bootstrap_Multi_Abstract {
 	}
 	
 	function postAction() {
-		$viewParams = Hivli::get('Controller')->getController()->getViewParams();
+		$viewParams = Hivli::get('Controller')->getController()->getParams();
 		Hivli::get('View')->setViewParamFromArray($viewParams);	
 	}
 	
