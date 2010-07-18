@@ -18,18 +18,19 @@ class Core_Bootstrap_Multi_Auth extends Core_Bootstrap_Multi_Abstract {
 	function postRoute(){
 
 		if (Hivli::get('Auth')->hasIdentity()){
-			$user = Data_User::getUserById(Hivli::get('Auth')->getIdentity());
+			$user = UserTable::findById(Hivli::get('Auth')->getIdentity());
 
 			if ($user){
 				Hivli::get('Auth')->recordIdentityData($user);
 				Hivli::get('Auth')->setRole($user->get('role'));
 				Hivli::get("View")->setParam('user', $user);
-				Data_User::db()->update(array('last_action_date' => time()), array('id' => $user->get('id')));
 			} else {
 				Hivli::get('Auth')->clearIdentity();
 			}
 		} else {
-			Hivli::get("View")->setParam('user', new Model_User(array('role' => 'guest')));
+			$guest = new User();
+			$guest->fromArray(array('role' => 'guest'));
+			Hivli::get("View")->setParam('user', $guest);
 		}
 
 		if (!Hivli::get('Auth')->isAllowed(Hivli::get('Router')->getControllerName(), Hivli::get('Router')->getActionName())){
