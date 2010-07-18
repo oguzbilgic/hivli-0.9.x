@@ -31,8 +31,6 @@ class Hivli_Model {
 	}
 }
 
-function __autoload($class_name)
-{
-    $Model = Hivli::get('Model');
-	$Model->getClass($class_name);
+function __autoload($class_name){
+	Hivli::get('Model')->getClass($class_name);
 }
