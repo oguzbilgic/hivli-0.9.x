@@ -45,14 +45,6 @@ class Hivli_View {
 		return $this->_publicViewPath;
 	}
 	
-	function deactivate(){
-		$this->_render = false;
-	}
-	
-	function deactivateLayout(){
-		$this->getHelper('Layout')->deactivateLayout();
-	}
-	
 	function setViewParamFromArray($viewParamFromArray = array()){
 		foreach ($viewParamFromArray as $key => $value){
 			$this->_viewParam[$key] = $value;
@@ -72,14 +64,17 @@ class Hivli_View {
 	}
 	
 	function getHelper($helperName){
-		if (!empty($this->_helper)){
-			return $this->_helper->getHelper($helperName);
-		} else {
-			$this->_helper = new Hivli_View_Helper($this);
-			return $this->_helper->getHelper($helperName);
-		}
+		return Hivli_View_Helper::getInstance()->getHelper($helperName);
 	}
-
+	
+	function deactivate(){
+		$this->_render = false;
+	}
+	
+	function deactivateLayout(){
+		$this->getHelper('Layout')->deactivateLayout();
+	}
+	
 	function render(){
 		if($this->_render){
 			if($this->getHelper('Layout')->isActive()){

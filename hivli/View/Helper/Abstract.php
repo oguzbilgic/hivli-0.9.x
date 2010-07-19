@@ -1,8 +1,8 @@
 <?
 class Hivli_View_Helper_Abstract {
 	
-	function __construct(Hivli_View $view){
-		$this->View = $view;
+	function __construct(){
+		$this->View = Hivli::get('View');
 	}
 	
 	private function __call($method, $args) {
