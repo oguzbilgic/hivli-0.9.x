@@ -5,11 +5,11 @@ class Hivli_View_Helper_Url extends Hivli_View_Helper_Abstract {
 		if($isFilter){
 			$url = $this->_filterUrl($url);
 		}
-		return 'http://' . $_SERVER['SERVER_NAME'] . '/' . $this->View->getsitePath() . $url;
+		return 'http://' . $_SERVER['SERVER_NAME'] . '/' . Hivli::get('View')->getsitePath() . $url;
 	}
 	
 	function imageUrl($url){
-		return 'http://' . $_SERVER['SERVER_NAME'] . '/' . $this->View->getsitePath() . 'public/' . $this->View->getPublicViewPath() . 'images/' . $url;
+		return 'http://' . $_SERVER['SERVER_NAME'] . '/' . Hivli::get('View')->getsitePath() . 'public/' . Hivli::get('View')->getPublicViewPath() . 'images/' . $url;
 	}
 	
 	function _filterUrl($string){

@@ -39,6 +39,6 @@ class Hivli_View_Helper_Layout extends Hivli_View_Helper_Abstract {
 	}
 	
 	function content(){
-		$this->View->getHelper('Script')->render();
+		Hivli::get('View')->getHelper('Script')->render();
 	}
 }

@@ -18,10 +18,10 @@ class Hivli_View_Helper_Script extends Hivli_View_Helper_Abstract {
 			}
 		}
 		
-		include $this->View->getViewPath() . 'script/' .$this->_viewFile . '.' . Hivli::get('View')->getType() . '.php';
+		include Hivli::get('View')->getViewPath() . 'script/' .$this->_viewFile . '.' . Hivli::get('View')->getType() . '.php';
 	}
 
 	function modul($modulName, $modulParams = NULL){
-		$this->View->getHelper('Modul')->render($modulName, $modulParams);
+		Hivli::get('View')->getHelper('Modul')->render($modulName, $modulParams);
 	}
 }

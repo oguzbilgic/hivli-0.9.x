@@ -2,11 +2,11 @@
 class Hivli_View_Helper_Modul extends Hivli_View_Helper_Abstract {
 	
 	function render($modulName, $modulParams = NULL){
-		foreach ($this->View->getParams() as $key => $value){
+		foreach (Hivli::get('View')->getParams() as $key => $value){
 			$$key = $value ;
 		}
 		$$modulName = $modulParams;
-		include $this->View->getViewPath() . 'modul/' . $modulName . '.php';
+		include Hivli::get('View')->getViewPath() . 'modul/' . $modulName . '.php';
 	}
 	
 	function _direct($args){

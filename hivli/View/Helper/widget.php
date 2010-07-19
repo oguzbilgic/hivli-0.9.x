@@ -3,13 +3,13 @@ include 'Widget/Abstract.php';
 class Hivli_View_Helper_Widget extends Hivli_View_Helper_Abstract {
 	
 	function render($widgetName, $widgetParams = NULL){
-		include $this->View->getViewPath() . 'widget/' . $widgetName . 'Widget.php';
+		include Hivli::get('View')->getViewPath() . 'widget/' . $widgetName . 'Widget.php';
 		$widgetClassName = $widgetName . 'Widget';
 		$widget = new $widgetClassName;
 		$widget->prepare();
 		$widget->action();
 		
-		foreach ($this->View->getParams() as $key => $value){
+		foreach (Hivli::get('View')->getParams() as $key => $value){
 			$$key = $value ;
 		}
 		
@@ -17,7 +17,7 @@ class Hivli_View_Helper_Widget extends Hivli_View_Helper_Abstract {
 			$$key = $value;
 		}
 		
-		include $this->View->getViewPath() . 'widget/view/' . $widgetName . '.php';
+		include Hivli::get('View')->getViewPath() . 'widget/view/' . $widgetName . '.php';
 	}
 	
 	function _direct($args){
