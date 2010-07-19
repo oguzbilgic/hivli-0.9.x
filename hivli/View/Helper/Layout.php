@@ -1,7 +1,7 @@
 <?
 class Hivli_View_Helper_Layout extends Hivli_View_Helper_Abstract {
 	
-	var $_layoutFile = 'layout';
+	var $_layoutFileName = 'layout';
 	var $_isActive = false;
 	
 	function activateLayout(){
@@ -16,26 +16,29 @@ class Hivli_View_Helper_Layout extends Hivli_View_Helper_Abstract {
 		return $this->_isActive;
 	}
 
-	function setLayoutFile($layout){
-		$this->_layoutFile = $layout;
+	function setLayoutFileName($layoutName){
+		$this->_layoutFileName = $layoutName;
 	}
 	
-	function getLayoutFile(){
-		return $this->_layoutFile;
+	function getLayoutFileName(){
+		return $this->_layoutFileName;
 	}
 	
 	function render(){
-		foreach ($this->View->getParams() as $key => $value){
-			$$key = $value ;
+		foreach (Hivli::get('View')->getParams() as $key => $value){
+			switch (Hivli::get('View')->getType()){
+				case 'html':
+					$$key = $value ;
+					break;
+				case 'json':
+					$$key = json_encode($value);
+			}
 		}
 		
-		include $this->View->getViewPath() . 'layout/' . $this->getLayoutFile() . '.php';
+		include Hivli::get('View')->getViewPath() . 'layout/' . $this->getLayoutFileName() . '.' . Hivli::get('View')->getType() . '.php';
 	}
-	
-	
 	
 	function content(){
 		$this->View->getHelper('Script')->render();
 	}
-	
 }

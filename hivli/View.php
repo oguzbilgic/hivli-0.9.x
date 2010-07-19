@@ -4,9 +4,9 @@ class Hivli_View {
 	
 	private  $_viewPath;
 	private  $_sitePath;
-	private  $_viewParam = array(); 
+	private  $_viewParams = array(); 
+	private  $_viewType; 
 	private  $_render = true;
-	private  $_helpers;
 	
 	private static $_instance;
 	
@@ -32,6 +32,20 @@ class Hivli_View {
 	function setPublicViewPath($path){
 		$this->_publicViewPath = $path;
 	}
+	
+	function setType($viewType){
+		$this->_viewType = $viewType;
+	}
+	
+	function setViewParamFromArray($viewParamFromArray = array()){
+		foreach ($viewParamFromArray as $key => $value){
+			$this->_viewParams[$key] = $value;
+		}
+	}
+	
+	function setParam($key, $value){
+		$this->_viewParams[$key] = $value;
+	}
 
 	function getSitePath(){
 		return $this->sitePath;
@@ -45,26 +59,24 @@ class Hivli_View {
 		return $this->_publicViewPath;
 	}
 	
-	function setViewParamFromArray($viewParamFromArray = array()){
-		foreach ($viewParamFromArray as $key => $value){
-			$this->_viewParam[$key] = $value;
-		}
+	function getType(){
+		return $this->_viewType;
 	}
-	
-	function setParam($key, $value){
-		$this->_viewParam[$key] = $value;
-	}
-	
+		
 	function getParam($key){
-		return $this->_viewParam[$key];
+		return $this->_viewParams[$key];
 	}
 	
 	function getParams(){
-		return $this->_viewParam;
+		return $this->_viewParams;
 	}
 	
 	function getHelper($helperName){
 		return Hivli_View_Helper::getInstance()->getHelper($helperName);
+	}
+	
+	function isActive(){
+		return $this->_render;
 	}
 	
 	function deactivate(){
@@ -76,7 +88,7 @@ class Hivli_View {
 	}
 	
 	function render(){
-		if($this->_render){
+		if($this->isActive()){
 			if($this->getHelper('Layout')->isActive()){
 				$this->getHelper('Layout')->render();
 			} else {

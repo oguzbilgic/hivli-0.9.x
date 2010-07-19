@@ -6,9 +6,9 @@ class Core_Bootstrap_Multi_Auth extends Core_Bootstrap_Multi_Abstract {
 		Hivli::get('Auth')->setAuthStatus(true);
 		Hivli::get('Auth')->setDefaultRole('guest');
 
-		Hivli::get('Auth')->allow('guest', array('index'));
+		Hivli::get('Auth')->allow('guest', array('index', 'api', 'error'));
 
-		Hivli::get('Auth')->allow('user', 'page');
+		Hivli::get('Auth')->allow('user', 'user');
 		Hivli::get('Auth')->connectRoles('user', 'guest');
 
 		Hivli::get('Auth')->allow('admin');
