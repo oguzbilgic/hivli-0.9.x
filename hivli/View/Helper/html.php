@@ -19,4 +19,12 @@ class Hivli_View_Helper_Html {
 		$uri = str_replace(' ', '-', $uri);
 		return 'http://' . $_SERVER['SERVER_NAME'] . '/' . Hivli::get('View')->getsitePath() . $uri;
 	}
+	
+	function googleJs($jsLibrary){
+		switch($jsLibrary){
+			case 'jquery':
+				echo '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"/>';
+				break;
+		}
+	}
 }
