@@ -1,5 +1,5 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /hivli/trunk/index.php
+RewriteRule ^(.*)$ /hivli/index.php
 AddHandler php5-script .php

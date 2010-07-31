@@ -2,18 +2,19 @@
 class IndexController extends Hivli_Controller_Abstract_Html {
 	
 	function indexAction(){
+		$data = array(	'body' => 'Hello this is body',
+						'title' => 'this is title',
+						'user_id' => '10',
+						'comment' => array(
+											array('comment' => 'super'), 
+											array('comment' => 'berbat')
+							)
+						);
 		
-		$newUser = new User();
-		$newUser['username'] = 'yenasasi uye';
-		$newUser['name'] = 'Oguz';
-		$newUser['password'] = 'pass';
-		$newUser['email'] = 'deneme@google.com';
-		
-		try {
-			$newUser->save();
-		} catch(Doctrine_Validator_Exception $e){
-			print_r($newUser->getErrorStack()->toArray());
-		}
+		$post = new Row_Post();
+		$post->fromArray($data);
+		//print_r($post);
+		$post->save();
  	}
  	
  	function apiAction(){
