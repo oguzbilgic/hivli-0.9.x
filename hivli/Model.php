@@ -1,5 +1,4 @@
 <?php
-include 'Model/Abstract.php';
 class Hivli_Model {
 	
 	private $_models;
