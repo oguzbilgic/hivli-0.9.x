@@ -2,6 +2,7 @@
 class ApiController extends Hivli_Controller_Abstract_Api {
 	
 	function IndexAction(){
-		$this->view->response = array('response' => 'ok', 'data' => array('title', 'name', 'user'));
+ 		$this->view->response = 'ok';
+ 		$this->view->data = array('title', 'name', 'user');
 	}
 }

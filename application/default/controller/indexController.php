@@ -21,7 +21,8 @@ class IndexController extends Hivli_Controller_Abstract_Html {
  	
  	function apiAction(){
  		//api style view in non api controller
- 		$this->view->response = array('response' => 'ok', 'data' => array('title', 'name', 'user'));
+ 		$this->view->response = 'ok';
+ 		$this->view->data = array('title', 'name', 'user');
  		Hivli::get('View')->setType('json');
  	}
 }
