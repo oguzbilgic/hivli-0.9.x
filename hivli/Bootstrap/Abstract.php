@@ -1,5 +1,5 @@
 <?
-class Core_Bootstrap_Multi_Abstract {
+class Hivli_Bootstrap_Abstract {
 	
 	function preDetectApp(){}
 	function detectApp(){}

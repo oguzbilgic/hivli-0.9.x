@@ -1,5 +1,5 @@
 <?
-class Core_Bootstrap_Multi_I18n extends Core_Bootstrap_Multi_Abstract {
+class Bootstrap_I18n extends Hivli_Bootstrap_Abstract {
 	
 	var $_languages = array('tr' => 'turkish');
 							

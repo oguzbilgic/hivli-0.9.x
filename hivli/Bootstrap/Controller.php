@@ -1,5 +1,5 @@
 <?
-class Core_Bootstrap_Multi_Controller extends Core_Bootstrap_Multi_Abstract {
+class Hivli_Bootstrap_Controller extends Hivli_Bootstrap_Abstract {
 	
 	function preAction(){
 		Hivli::get('Controller')->setControllerName(Hivli::get('Router')->getControllerName());

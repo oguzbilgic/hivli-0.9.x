@@ -1,5 +1,5 @@
 <?
-class Core_Bootstrap_Multi_Php extends Core_Bootstrap_Multi_Abstract {
+class Hivli_Bootstrap_Php extends Hivli_Bootstrap_Abstract {
 	
 	function postRoute(){
 		ini_set("memory_limit", "100M");

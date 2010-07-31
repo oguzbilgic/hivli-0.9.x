@@ -1,5 +1,5 @@
 <?
-class Core_Bootstrap_Multi_View extends Core_Bootstrap_Multi_Abstract {
+class Hivli_Bootstrap_View extends Hivli_Bootstrap_Abstract {
 	
 	function postDetectApp(){
 		Hivli::get('View')->setSitePath('hivli/trunk/');

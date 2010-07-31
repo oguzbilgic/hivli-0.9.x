@@ -1,5 +1,5 @@
 <?
-class Core_Bootstrap_Multi_Router extends Core_Bootstrap_Multi_Abstract {
+class Hivli_Bootstrap_Router extends Hivli_Bootstrap_Abstract {
 	
 	function preDetectApp(){
 		Hivli::get('Router')->addApplication('default', 'hivli/trunk/', 'default/');

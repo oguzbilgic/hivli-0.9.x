@@ -1,5 +1,5 @@
 <?php
-class Core_Bootstrap_Multi_Auth extends Core_Bootstrap_Multi_Abstract {
+class Bootstrap_Auth extends Hivli_Bootstrap_Abstract {
 
 	function preRoute(){
 			

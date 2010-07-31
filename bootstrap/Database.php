@@ -1,5 +1,5 @@
 <?
-class Core_Bootstrap_Multi_Database extends Core_Bootstrap_Multi_Abstract {
+class Bootstrap_Database extends Hivli_Bootstrap_Abstract {
 	
 	function postDetectApp(){
 		Hivli::get('Database')->setUp(array('host' => 'localhost',
