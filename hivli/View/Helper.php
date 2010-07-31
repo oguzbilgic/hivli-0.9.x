@@ -1,12 +1,6 @@
 <?php
-include 'Helper/Abstract.php';
 class Hivli_View_Helper {
-	
-	/**
-	 * Collection of preloaded helper classes. 
-	 *
-	 * @var array 
-	 */
+
 	private $_helper;
 	
 	private static $_instance;
@@ -21,14 +15,9 @@ class Hivli_View_Helper {
 		}
 		return self::$_instance;
 	}
-	
-	/**
-	 * Returns requested helper class
-	 *	
-	 * @param string $helperName Name of the requested helper
-	 * @return Hivli_View_Helper_Abstract
-	 */
+
 	public function getHelper($helperName){
+		$helperName = ucfirst(strtolower($helperName));
 		if (isset($this->_helper[$helperName])){
 			return $this->_helper[$helperName];
 		} else {
@@ -47,4 +36,8 @@ class Hivli_View_Helper {
 			}
 		}		
 	}
+}
+
+function helper($helper){
+	return Hivli::get('View')->getHelper($helper);
 }

@@ -2,6 +2,7 @@
 class IndexController extends Hivli_Controller_Abstract_Html {
 	
 	function indexAction(){
+		/*
 		$data = array(	'body' => 'Hello this is body',
 						'title' => 'this is title',
 						'user_id' => '10',
@@ -15,6 +16,7 @@ class IndexController extends Hivli_Controller_Abstract_Html {
 		$post->fromArray($data);
 		//print_r($post);
 		$post->save();
+		*/
  	}
  	
  	function apiAction(){

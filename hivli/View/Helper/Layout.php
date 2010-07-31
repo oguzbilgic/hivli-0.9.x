@@ -1,5 +1,5 @@
 <?
-class Hivli_View_Helper_Layout extends Hivli_View_Helper_Abstract {
+class Hivli_View_Helper_Layout {
 	
 	var $_layoutFileName = 'layout';
 	var $_isActive = false;
@@ -36,9 +36,5 @@ class Hivli_View_Helper_Layout extends Hivli_View_Helper_Abstract {
 		}
 		
 		include Hivli::get('View')->getViewPath() . 'layout/' . $this->getLayoutFileName() . '.' . Hivli::get('View')->getType() . '.php';
-	}
-	
-	function content(){
-		Hivli::get('View')->getHelper('Script')->render();
 	}
 }

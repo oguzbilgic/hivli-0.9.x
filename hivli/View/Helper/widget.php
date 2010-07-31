@@ -1,6 +1,6 @@
 <?
 include 'Widget/Abstract.php';
-class Hivli_View_Helper_Widget extends Hivli_View_Helper_Abstract {
+class Hivli_View_Helper_Widget {
 	
 	function render($widgetName, $widgetParams = NULL){
 		include Hivli::get('View')->getViewPath() . 'widget/' . $widgetName . 'Widget.php';
@@ -19,13 +19,4 @@ class Hivli_View_Helper_Widget extends Hivli_View_Helper_Abstract {
 		
 		include Hivli::get('View')->getViewPath() . 'widget/view/' . $widgetName . '.php';
 	}
-	
-	function _direct($args){
-		if (isset($args['1'])){
-			$this->render($args['0'], $args['1']);
-		} else {
-			$this->render($args['0']);
-		}
-	}
 }
-

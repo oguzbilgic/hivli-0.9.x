@@ -17,6 +17,5 @@ class Core_Bootstrap_Multi_I18n extends Core_Bootstrap_Multi_Abstract {
 		}
 		
 		Hivli::get("I18n")->setI18n($language);
-		Hivli::get("View")->setParam('lang', Hivli::get("I18n")->getDictionary());
 	}
 }
