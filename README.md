@@ -5,10 +5,11 @@ These classes are created for once per request , You can access them by typing H
 
 * Auth - Basic Auth
 * Controller 
-* Database - Everything about database
+* Database [DEVELOPMENT] - Everything about database
 * I18n - Localization 
 * Log - Message Logger
 * Model
+* Form [DEVELOPMENT]
 * Plugin
 * Router
 * Test
@@ -20,3 +21,6 @@ These classes are created for once per request , You can access them by typing H
 * Exception - Basic Hivli exception class
 * Hivli - Class to access hivli core classes Hivli::get('Auth')
 * Object - Basic Object Class
+
+### Other Files
+* library.php - This includes necessary files
