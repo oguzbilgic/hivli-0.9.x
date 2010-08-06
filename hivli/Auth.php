@@ -37,13 +37,11 @@ class Hivli_Auth {
 			foreach ($controllers as $controller){
 				$this->allow($role, $controller, $actions);
 			}
-		}
-		if (!is_array($controllers) && is_array($actions)){
+		} elseif (is_array($actions)){
 			foreach ($actions as $action){
 				$this->allow($role, $controllers, $action);
 			}
-		}
-		if (!is_array($controllers) && !is_array($actions)){
+		} else {
 			if (isset($controllers)){
 				if (isset($actions)){
 					$this->_permissions[$role][$controllers][] = $actions;
