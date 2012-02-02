@@ -2,17 +2,16 @@
 class Hivli_View_Helper_Html {
   
   function css($cssFileName){
-    echo '<link rel="stylesheet" type="text/css" href="http://' . $_SERVER["SERVER_NAME"] . '/'. Hivli::get('View')->getsitePath() . 
-        'public/' . Hivli::get('View')->getPublicViewPath() . 'css/' . $cssFileName . '.css" media="screen" />';
+    echo '<link rel="stylesheet" type="text/css" href="http://' . $_SERVER["SERVER_NAME"] 
+      . '/css/' . $cssFileName . '.css" media="screen" />';
   }
   
   function js($jsFileName, $version = null){
-    echo '<script type="text/javascript" src="http://' . $_SERVER["SERVER_NAME"] . '/' . Hivli::get('View')->getsitePath() . 'public/'. 
-        Hivli::get('View')->getPublicViewPath() . 'js/' . $jsFileName . '.js' . $version . '"/>';
+    echo '<script type="text/javascript" src="http://' . $_SERVER["SERVER_NAME"] . '/js/' . $jsFileName . '.js' . $version . '"/>';
   }
   
   function image($url){
-    return 'http://' . $_SERVER['SERVER_NAME'] . '/' . Hivli::get('View')->getsitePath() . 'public/' . Hivli::get('View')->getPublicViewPath() . 'images/' . $url;
+    return 'http://' . $_SERVER['SERVER_NAME'] . '/images/' . $url;
   }
   
   function uri($uri){
