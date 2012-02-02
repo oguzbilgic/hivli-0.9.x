@@ -88,19 +88,13 @@ class Hivli_View {
 	}
 	
 	function render(){
-		if(!$this->isActive()) return false;
-		switch($this->getType()){
-			case 'html':
-				if($this->getHelper('Layout')->isActive()){
-					$this->getHelper('Layout')->render();
-				} else {
-					$this->getHelper('Script')->render();
-				}
-				break;
-			case 'json':
-				$this->getHelper('Json')->render();
-				break;
-		}
-		
+    if(!$this->isActive())
+      return false;
+
+    if($this->getHelper('Layout')->isActive()){
+      $this->getHelper('Layout')->render();
+    } else {
+      $this->getHelper('Script')->render();
+    }
 	}
 }

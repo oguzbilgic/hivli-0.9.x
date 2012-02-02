@@ -6,6 +6,7 @@ include 'Abstract/Html.php';
 class Hivli_Controller_Abstract {
 	
 	function initBase() {
+    Hivli::get("View").setType('html');
 		$this->view = new Object;
 	}
 	function initStart(){}

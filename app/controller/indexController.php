@@ -1,5 +1,5 @@
 <?
-class IndexController extends Hivli_Controller_Abstract_Html {
+class IndexController extends Hivli_Controller_Abstract {
 	
 	function indexAction(){
 		/*
