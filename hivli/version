@@ -1,4 +1,0 @@
-//
-//	What is new in v1.1 ? 
-//
-## [ENH] Added Doctrine v1.2.2 as an orm. We do not use our own database classes any more.
